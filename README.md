@@ -2,13 +2,11 @@
 
 # Overview
 
-{Provide a description the software that you wrote to demonstrate the Rust language.}
+This software is a command-line driven application that talks to a user, does some simple arithmetic, and closes. It features loops, variables, structures, slicing, expressions, conditionals, functions, and data structures including vectors, linked lists, and hash maps.
 
-{Describe your purpose for writing this software.}
+I wrote this software to teach myself about Rust and how it could be help me as a software engineer. I learned about the benefits of using Rust as well as the weaknesses Rust currently suffers from. While I prefer C-style syntax, Rust makes it easier to manage memory without a garbage collector. It also has great performance being a compiled language, however the lack of a traditional inheritance model makes it a poor choice for UI driven apps, as almost all UI frameworks rely on it.
 
-{Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the software running and a walk through of the code.  Focus should be on sharing what you learned about the language syntax.}
-
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/JK3EMa2HWr0)
 
 # Development Environment
 
