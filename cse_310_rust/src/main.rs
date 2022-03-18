@@ -2,6 +2,7 @@ use std::io;
 use std::collections::LinkedList;
 use std::collections::HashMap;
 
+// A User Structure
 struct User{
     name: String,
     email: String,
@@ -15,6 +16,7 @@ fn main() {
     println!("Ah, {}. Nice to meet you {}!", name, name);
     println!("Let me calculate something for you...");
     
+    // A loop for user input, if the input is invalid, it restarts. If it's successful, it continues.
     loop{
         println!("Would you like to add, subtract, multiply, or divide?");
         let input = get_input().to_lowercase();
@@ -46,6 +48,7 @@ fn main() {
     println!("And what's your favorite color?");
     let fav_color = get_input();
 
+    // Creates a user from the User structure.
     let current_user = User {
         email: String::from(email),
         name: String::from(name),
@@ -57,18 +60,21 @@ fn main() {
     println!("Name: {}", current_user.name);
     println!("Favorite Color: {}\n", current_user.favorite_color);
 
+    // Creates a vector
     let vec = vec![38, 78, 3, 96, 91, 3, 42, 89, 41, 58];
 
     println!("Here's a slice of a list of numbers from a vector.");
-    println!("{:?}",&vec[3..7]);
+    println!("{:?}",&vec[3..7]); // Slices a vector
 
     println!("\nAnd here's the list of numbers that were stored in that vector.");
     println!("{:?}",&vec);
 
+    // Creates a linked list.
     let linked_list = LinkedList::from([16, 70, 42, 59, 24, 38, 23, 33, 83, 9]);
     println!("\n...And a linked list.");
     println!("{:?}",&linked_list);
 
+    // Creates a hash map.
     let hash_map = HashMap::from([
         ("Meaning of Life", 42),
         ("My Favorite Number", 32),
@@ -82,6 +88,7 @@ fn main() {
     println!("\nWell, I think we're about done here. Have a great day, {}!", current_user.name);
 }
 
+// A function that returns a string.
 fn get_input() -> String{
     let mut input = String::new();
 
@@ -89,10 +96,14 @@ fn get_input() -> String{
         .read_line(&mut input)
         .expect("Failed to read line");
 
+    // Notice how this final statement has no semicolon. In Rust you omit the semicolon to return a value.
     input.trim().to_string()
 }
 
+// A function that returns a 32-bit integer.
 fn calc(term: char) -> i32{
+
+    // Mutable variables have the keyword 'mut' after the 'let' statement.
     let mut num1: i32 = 0;
     let mut num2: i32 = 0;
     
@@ -105,7 +116,7 @@ fn calc(term: char) -> i32{
 
             num1 = match input.trim().parse() {
                 Ok(num) => num,
-                Err(_) => continue,
+                Err(_) => continue, // If an error occurs when parsing the input, restart the loop.
             };
 
         break;
@@ -126,6 +137,7 @@ fn calc(term: char) -> i32{
         break;
     }
     
+    // Returns the result of the two numbers on the operation as selected in the parameter.
     if term == '+' { num1 + num2 }
     else if term == '-' { num1 - num2 }
     else if term == '*' { num1 * num2 }
